@@ -1,0 +1,31 @@
+#define P_red A0
+#define P_green A1
+#define P_blue A2
+
+#define L_red 11
+#define L_green 10
+#define L_blue 9
+
+void setup() {
+  pinMode (P_red, INPUT);
+  pinMode (P_green, INPUT);
+  pinMode (P_blue, INPUT);
+  pinMode (L_red, OUTPUT);
+  pinMode (L_green, OUTPUT);
+  pinMode (L_blue, OUTPUT);
+}
+
+void loop() {
+  int val_red=analogRead(P_red);
+  int val_green=analogRead(P_green);
+  int val_blue=analogRead(P_blue);
+  int lum_red = map(val_red, 0, 1023, 0, 255);
+  analogWrite(L_red, lum_red);
+  delay(5);
+  int lum_green = map(val_green, 0, 1023, 0, 255);
+  analogWrite(L_green, lum_green);
+  delay(5);
+  int lum_blue = map(val_blue, 0, 1023, 0, 255);
+  analogWrite(L_blue, lum_blue);
+  delay(5);
+}
